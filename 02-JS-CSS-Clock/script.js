@@ -15,6 +15,7 @@ function setDate() {
   if (secondDegrees === 90) {
     secondHand.style.transition = "none";
   } else {
+    // set transition and timing function back on
     secondHand.style.transition = "all 0.05s";
     secondHand.style.transitionTimingFunction =
       "cubic-bezier(0.1, 2.7, 0.58, 1)";
