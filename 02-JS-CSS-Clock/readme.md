@@ -1,6 +1,6 @@
 # Project 02 JS & CSS Clock
 
-This is my solution to the [JavaScript30 challenge by WesBos](https://javascript30.com/).
+Participating in the [JavaScript30 challenge by WesBos](https://javascript30.com/).
 
 ### Screenshot
 
