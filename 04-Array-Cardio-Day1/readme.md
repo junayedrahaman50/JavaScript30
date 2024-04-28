@@ -2,7 +2,7 @@
 
 Participating in the [JavaScript30 challenge by WesBos](https://javascript30.com/).
 
-### What I learned:
+## What I learned:
 
 - Array [filter()](https://www.geeksforgeeks.org/javascript-array-filter-method/) method.
 - Array [map()](https://www.geeksforgeeks.org/javascript-array-map-method/) method.
