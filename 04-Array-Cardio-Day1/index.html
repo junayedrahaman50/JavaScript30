@@ -120,7 +120,7 @@
         // 7. sort Exercise
         // Sort the people alphabetically by last name
         const alpha = people.sort((lastOne, nextOne) => {
-            // remove ', '
+            // split removes ', ' and returns array of substrings
             const [aLast, aFirst] = lastOne.split(', ');
             const [bLast, bFirst] = nextOne.split(', ');
             return aLast > bLast ? 1 : -1;
@@ -129,8 +129,18 @@
 
         // 8. Reduce Exercise
         // Sum up the instances of each of these
-        const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
-
+        const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
+        const transportation = data.reduce(function (obj, item) {
+            // console.log(item);
+            // check if property exist on obj
+            if (!obj[item]) {
+                // Sets the initial one to 0, e.g. {walk:0}
+                obj[item] = 0;
+            }
+            obj[item]++; // e.g. obj[car] or obj.car = obj.car + 1
+            return obj
+        }, {}); // the initial value of obj will be {}
+        console.log(transportation);
     </script>
 </body>
 
