@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flex Panels 💪</title>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+    <style>
+        html {
+            box-sizing: border-box;
+            background: #ffc600;
+            font-family: 'helvetica neue';
+            font-size: 20px;
+            font-weight: 200;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        .panels {
+            min-height: 100vh;
+            overflow: hidden;
+            /* Make panels flex container */
+            display: flex;
+        }
+
+        .panel {
+            background: #6B0F9C;
+            box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+            color: white;
+            text-align: center;
+            align-items: center;
+            /* Safari transitionend event.propertyName === flex */
+            /* Chrome + FF transitionend event.propertyName === flex-grow */
+            transition:
+                font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+                flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+                background 0.2s;
+            font-size: 20px;
+            background-size: cover;
+            background-position: center;
+            /* The extra space will be distributed in each of the flex item evenly */
+            flex: 1;
+            /* Make panel flex container(an flex item can also be a flex container) */
+            display: flex;
+            /* center flex items horizontally(main axis) */
+            justify-content: center;
+            /* center flex items vertically(cross axis) */
+            align-items: center;
+            /* flip the main axis from horizontal to vertical */
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .panel1 {
+            background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
+        }
+
+        .panel2 {
+            background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500);
+        }
+
+        .panel3 {
+            background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d);
+        }
+
+        .panel4 {
+            background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+        }
+
+        .panel5 {
+            background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+        }
+
+        /* Flex items */
+        /* Direct children of flex item panel */
+        .panel>* {
+            margin: 0;
+            width: 100%;
+            transition: transform 0.5s;
+            /* Make each of the flex item take up 1/3 of the available height */
+            /* Shorthand for flex-grow, -shrink, and -basis */
+            flex: 1 0 auto;
+            /* Make it flex container to center it horizontally and vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Select first child of its direct children */
+        /* When we take off the transform the element will transition itself in & out */
+        .panel>*:first-child {
+            /* Move the element vertically upwards by 100% of its own height */
+            transform: translateY(-100%);
+        }
+
+        /* Take off transform the element has both panel & open-active class */
+        .panel.open-active>*:first-child {
+            transform: translateY(0);
+        }
+
+        /* Select last child of its direct children */
+        .panel>*:last-child {
+            /* Move the element vertically downwards by 100% of its own height */
+            transform: translateY(100%);
+        }
+
+        .panel.open-active>*:last-child {
+            transform: translateY(0);
+        }
+
+
+        .panel p {
+            text-transform: uppercase;
+            font-family: 'Amatic SC', cursive;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+            font-size: 2em;
+        }
+
+        .panel p:nth-child(2) {
+            font-size: 4em;
+        }
+
+        /* When element has both panel & open class */
+        .panel.open {
+            /* The element will take 5 times of extra space than other flex items */
+            flex: 5;
+            font-size: 40px;
+        }
+    </style>
+
+
+    <div class="panels">
+        <div class="panel panel1">
+            <p>Hey</p>
+            <p>Let's</p>
+            <p>Dance</p>
+        </div>
+        <div class="panel panel2">
+            <p>Give</p>
+            <p>Take</p>
+            <p>Receive</p>
+        </div>
+        <div class="panel panel3">
+            <p>Experience</p>
+            <p>It</p>
+            <p>Today</p>
+        </div>
+        <div class="panel panel4">
+            <p>Give</p>
+            <p>All</p>
+            <p>You can</p>
+        </div>
+        <div class="panel panel5">
+            <p>Life</p>
+            <p>In</p>
+            <p>Motion</p>
+        </div>
+    </div>
+
+    <script>
+        /* Add & remove classes on click */
+        /* get all elements with panel class */
+        const panels = document.querySelectorAll('.panel');
+
+        function toggleOpen() {
+            // add/remove open class
+            this.classList.toggle('open');
+        }
+        function toggleActive(e) {
+            // get the property names that transitioned
+            // console.log(e);
+            console.log(e.propertyName);
+            // if the propertyname includes 'flex' then toggle open-active class
+            if (e.propertyName.includes('flex')) {
+                this.classList.toggle('open-active');
+            }
+        }
+        // Listen for the click event on each of the panel
+        panels.forEach((panel) => panel.addEventListener('click', toggleOpen));
+        // Listen for the transitionend event
+        panels.forEach((panel) => panel.addEventListener('transitionend', toggleActive));
+
+    </script>
+
+
+
+</body>
+
+</html>
