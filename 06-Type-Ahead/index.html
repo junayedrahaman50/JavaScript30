@@ -21,7 +21,7 @@
     const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
     /* Filter the json data coming from endpoint that matches city name or state name */
     const cities = [];
-    /* Using fetch api to retrieve data, fetch() method will return a promise. then() method is called when the promise if fulfilled or rejected */
+    /* Using fetch api to retrieve data, fetch() method will return a promise. then() method is called when the promise is fulfilled or rejected */
     /* convert blob (response) from raw data to json using blob.json() that returns another promise on which we'll call then() method that will give us the desired data */
     const prom = fetch(endpoint)
       .then(blob => blob.json())
