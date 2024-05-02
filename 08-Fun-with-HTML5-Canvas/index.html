@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+        const canvas = document.querySelector('#draw');
+        // we don't draw directly to the canvas element in html. We draw on conetext. Context can either be 2d or 3d.
+        const ctx = canvas.getContext('2d');
+        // size up canvas to match width of window, by default it's 800x800 specified in canvas 
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        ctx.strokeStyle = '#BADA55';
+        // Make line joins round
+        ctx.lineJoin = 'round';
+        // Make line endpoints round
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 100; // make line thicker
+        // ctx.globalCompositeOperation = 'multiply';
+
+        // false on click up, true on click down
+        let isDrawing = false;
+        // starting endpoint
+        let lastX = 0;
+        let lastY = 0;
+        let hue = 0;
+        let direction = true;
+
+        function draw(e) {
+            if (!isDrawing) return; // stop fn when not moused down
+            console.log(e);
+            ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+            ctx.beginPath();
+            // start from
+            ctx.moveTo(lastX, lastY);
+            // go to 
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY]; // asign multiple variable using array destructuring
+            hue++; // increment hue from 0
+            // reset hue on reaching end of spectrum
+            if (hue >= 360) {
+                hue = 0;
+            }
+            if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+                direction = !direction; // invert direction, make it true/false
+            }
+            if (direction) {
+                ctx.lineWidth++;
+            } else {
+                ctx.lineWidth--;
+            }
+        }
+        // click and drag functionality
+        canvas.addEventListener('mousemove', draw);
+        // when clicked down before doing mousemove update lastX and lastY thus putting us where wanna go rather than starting at (0,0)
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+
+    </script>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+    </style>
+
+</body>
+
+</html>
