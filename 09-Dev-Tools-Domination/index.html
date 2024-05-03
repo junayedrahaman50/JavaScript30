@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Console Tricks!</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+        const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+        function makeGreen() {
+            const p = document.querySelector('p');
+            p.style.color = '#BADA55';
+            p.style.fontSize = '50px';
+        }
+
+        // Use break on > attribute modifications to track js execution of DOM element attribute changes
+
+        // Regular
+        console.log('Hello');
+
+        // Interpolated
+        console.log('My name is %s', 'John Doe');
+
+        // Styled
+        // %c is a placeholder that allows us to apply CSS styles to the log message that follows it
+        console.log('%c I am some great text!', 'font-size:30px; text-shadow: #FC0 1px 0 10px;text-transform:uppercase;')
+
+        // warning!
+        console.warn('You got a warning!');
+
+        // Error :|
+        console.error('You got an error!');
+        // Info
+        console.info('Crocodiles eat 3-4 people per year!');
+        // Testing
+        // console.assert will fire if condition is false
+        const p = document.querySelector('p');
+        console.assert(p.classList.contains("wrong"), "That is wrong!");
+
+        // clearing
+        // console.clear();
+
+        // Viewing DOM Elements
+        // shows all the the methods(they are in prototype) and properties available on the element
+        console.log(p);
+        console.dir(p);
+
+        // Grouping together
+        dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);
+            console.log(`This is ${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old.`);
+            console.log(`${dog.name} is ${dog.age * 7} dog years old.`);
+            console.groupEnd(`${dog.name}`);
+        });
+
+        // counting
+        console.count('Wes');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+
+        // timing
+        console.time('fetching data...');
+        fetch('https://api.github.com/users/junayedrahaman50')
+            .then(data => data.json())
+            .then(data => {
+                console.timeEnd('fetching data...'); // run this when data fetching is done
+                console.log(data);
+            });
+        // There is also a performance.now()
+        // we can take an array of objects assuming they've same properties we can show them in tabular form
+        console.table(dogs);
+
+    </script>
+</body>
+
+</html>
