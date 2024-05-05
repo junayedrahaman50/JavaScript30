@@ -10,5 +10,4 @@ Participating in the [JavaScript30 challenge by WesBos](https://javascript30.com
 
 - Working with video file.
 - Implementing video player using javascript.
-- Some HTMLMediaElement properties.
-- HTMLMediaElement timeupdate method.
+- Some HTMLMediaElement properties, and methods.
