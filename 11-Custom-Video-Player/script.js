@@ -1,4 +1,4 @@
-/* Get our elements */
+/* Get the elements */
 const player = document.querySelector(".player");
 /* player is the parent of rest elements */
 const video = player.querySelector(".viewer");
@@ -8,7 +8,7 @@ const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 
-/* Build our functions */
+/* Build functions */
 
 /* this fn will play/pause the video */
 function togglePlay() {
@@ -26,7 +26,6 @@ function skip() {
   // skip video forwards/backwards
   video.currentTime += parseFloat(this.dataset.skip);
 }
-// let isMouseDown = false;
 function handleRangeUpdate() {
   // the name attributes are same as video properties
   video[this.name] = this.value; // video.playbackRate/video.volume
@@ -75,4 +74,4 @@ progress.addEventListener("mouseup", () => {
   mousedown = false; // on mouseup set it back to false
 });
 
-// Challenge implement fullscreen button
+// Challenge: implement fullscreen button
