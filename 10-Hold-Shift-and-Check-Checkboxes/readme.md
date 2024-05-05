@@ -8,4 +8,4 @@ Participating in the [JavaScript30 challenge by WesBos](https://javascript30.com
 
 ## What I learned:
 
-- Change elements inbetween while holding shift.
+- Chek boxes in-between while holding shift key.
