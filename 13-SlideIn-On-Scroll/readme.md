@@ -8,6 +8,6 @@ Participating in the [JavaScript30 challenge by WesBos](https://javascript30.com
 
 ## What I learned:
 
-- Debounce function
+- Debouncing a function.
 - Useful window properties.
 - HTMLElement: offsetTop property.
