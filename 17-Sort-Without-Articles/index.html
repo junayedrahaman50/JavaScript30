@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Without Articles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            background: rgb(238, 174, 202);
+            background: linear-gradient(45deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #bands {
+            list-style: inside square;
+            font-size: 20px;
+            font-weight: 400;
+            background: white;
+            width: 500px;
+            margin: 50px auto;
+            padding: 0;
+            box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        #bands li {
+            border-bottom: 1px solid #efefef;
+            padding: 20px;
+        }
+
+        #bands li:last-child {
+            border-bottom: 0;
+        }
+
+        #bands li::marker {
+            content: '🔥 ';
+        }
+    </style>
+
+    <ul id="bands"></ul>
+
+    <script>
+        const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+        function strip(bandName) {
+            // Regex to match "The ", "A ", or "An "(case-insensitive), trim removes whitespaces from both ends of string
+            return bandName.trim().replace(/^(The |A |An )/i, '').trim();
+        }
+        const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+        document.querySelector('#bands').innerHTML = sortedBands.map(band => `<li>${band}</li>`).join('');
+        console.log(sortedBands);
+
+    </script>
+
+</body>
+
+</html>
