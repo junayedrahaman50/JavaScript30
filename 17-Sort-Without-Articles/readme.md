@@ -8,5 +8,5 @@ Participating in the [JavaScript30 challenge by WesBos](https://javascript30.com
 
 ## What I learned:
 
-- Using regex in [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) method.
+- Using [regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) in [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) method.
 - String [replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace), and [trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) methods.
