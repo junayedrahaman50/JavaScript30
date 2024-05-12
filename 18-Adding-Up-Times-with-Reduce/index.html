@@ -187,7 +187,6 @@
     <script>
         // Select all elements with data-time attribute, returned nodeList converted to array using Array.from
         const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
-        console.log(timeNodes);
         const seconds = timeNodes.map(node => node.dataset.time)
             .map(timeCode => {
                 const [mins, secs] = timeCode.split(":").map(parseFloat); // "6:10" -> ["6", "10"] -> [6, 10]
