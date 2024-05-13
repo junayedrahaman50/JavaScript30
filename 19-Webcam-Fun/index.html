@@ -11,8 +11,9 @@
 <body>
 
   <div class="photobooth">
+    <canvas class="photo" style="transform: scaleX(-1);"></canvas>
     <div class="controls">
-      <button onClick="takePhoto()">Take Photo</button>
+
       <div class="rgb">
         <label for="rmin">Red Min:</label>
         <input type="range" min=0 max=255 name="rmin">
@@ -33,9 +34,10 @@
         <label for="bmax">Blue Max:</label>
         <input type="range" min=0 max=255 name="bmax">
       </div>
+      <button onClick="takePhoto()">Take Photo</button>
     </div>
 
-    <canvas class="photo" style="transform: scaleX(-1);"></canvas>
+
     <video class="player" style="transform: scaleX(-1);"></video>
     <div class="strip"></div>
   </div>
