@@ -9,8 +9,7 @@ function getVideo() {
   navigator.mediaDevices
     .getUserMedia({ video: true, audio: false })
     .then((localMediaStream) => {
-      console.log(localMediaStream);
-      //   live video feed
+      // live video feed
       video.srcObject = localMediaStream;
       video.play();
     }) // handle webcam access not allowed
@@ -26,14 +25,12 @@ let [doRgbSplit, doRedEffect] = [false, false];
 function paintToCanvas() {
   const width = video.videoWidth;
   const height = video.videoHeight;
-  // size of video coming in from webcam
-  console.log(width, height);
   // make canvas same size as webcam video feed
   canvas.width = width;
   canvas.height = height;
   // every 16ms take image from webcam and put into canvas
   return setInterval(() => {
-    ctx.drawImage(video, 0, 0, width, height); // pass in video or image in drawImage it will paint right to it
+    ctx.drawImage(video, 0, 0, width, height); // pass in video or image
     // take the pixels out
     let pixels = ctx.getImageData(0, 0, width, height);
     // apply filters / mess with the pixels
