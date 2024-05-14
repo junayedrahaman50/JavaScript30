@@ -11,18 +11,12 @@ html {
 html {
   position: relative;
   font-size: 10px;
-  /* background: #ffc600; */
-  /* background: whitesmoke; */
   background: url(Pattern.png) top left repeat, #dae0e6;
-  /* background: #9796f0;
-  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);
-  background: linear-gradient(to right, #fbc7d4, #9796f0); */
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
 .photobooth {
-  /* background: whitesmoke; */
   max-width: 150rem;
   margin: 2rem auto;
   border-radius: 2px;
@@ -32,18 +26,9 @@ html {
   border-radius: 1rem;
   gap: 20px;
   align-items: center;
-  /* background: linear-gradient(
-    45deg,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  ); */
 }
 
 .controls {
-  /* position: absolute;
-  top: 50%;
-  left: 1%;
-  transform: translateY(-50%); */
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -65,7 +50,6 @@ html {
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 3px;
   font-family: inherit;
-  /* width: 100%; */
   font-weight: 500;
 }
 
@@ -77,25 +61,14 @@ html {
   background-color: #ffd43b;
 }
 
-/*clearfix*/
-/* .photobooth:after {
-  content: "";
-  display: block;
-  clear: both;
-} */
-
 .photo {
   width: 100%;
-  /* float: left; */
   height: 48rem;
   width: 64rem;
-  /* margin-top: 2rem; */
   background-color: #fff;
   border-radius: 3px;
-  /* background: linear-gradient(to right, #fbc7d4, #9796f0); */
   padding: 1rem;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  /* border-radius: 1.6rem; */
 }
 
 .player {
@@ -155,42 +128,41 @@ input[type="range"] {
 
 /* Styles for the track (the area behind the thumb) */
 input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #ccc; /* Set the track color */
-  height: 8px; /* Adjust the track height */
-  border-radius: 4px; /* Add rounded corners to the track */
+  background-color: #ccc;
+  height: 8px;
+  border-radius: 4px;
 }
 
 input[type="range"]::-moz-range-track {
-  background-color: #ccc; /* Set the track color */
-  height: 8px; /* Adjust the track height */
-  border-radius: 4px; /* Add rounded corners to the track */
+  background-color: #ccc;
+  height: 8px;
+  border-radius: 4px;
 }
 
 /* Styles for the thumb (the draggable element) */
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
-  width: 16px; /* Set the thumb width */
-  height: 16px; /* Set the thumb height */
-  background-color: #4dabf7; /* Set the thumb color */
-  border-radius: 50%; /* Make the thumb circular */
+  width: 16px;
+  height: 16px;
+  background-color: #4dabf7;
+  border-radius: 50%;
   cursor: pointer;
-  margin-top: -4px; /* Adjust the vertical position of the thumb */
+  margin-top: -4px;
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 16px; /* Set the thumb width */
-  height: 16px; /* Set the thumb height */
-  background-color: #4dabf7; /* Set the thumb color */
-  border-radius: 50%; /* Make the thumb circular */
+  width: 16px;
+  height: 16px;
+  background-color: #4dabf7;
+  border-radius: 50%;
   cursor: pointer;
 }
 
-/* Styles for the track when the range input is in focus */
 input[type="range"]:focus::-webkit-slider-runnable-track {
-  background-color: #aaa; /* Change the track color on focus */
+  background-color: #aaa;
 }
 
 input[type="range"]:focus::-moz-range-track {
-  background-color: #aaa; /* Change the track color on focus */
+  background-color: #aaa;
 }

@@ -10,7 +10,6 @@ function getVideo() {
     .getUserMedia({ video: true, audio: false })
     .then((localMediaStream) => {
       console.log(localMediaStream);
-      //   video.src = window.URL.createObjectURL(localMediaStream); // convert video stream into url that's understandable to video player
       //   live video feed
       video.srcObject = localMediaStream;
       video.play();
@@ -33,7 +32,6 @@ function paintToCanvas() {
   canvas.width = width;
   canvas.height = height;
   // every 16ms take image from webcam and put into canvas
-  // return setInterval to have access to it in case we wanna stop it
   return setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height); // pass in video or image in drawImage it will paint right to it
     // take the pixels out
@@ -42,7 +40,6 @@ function paintToCanvas() {
     doRedEffect && (pixels = redEffect(pixels));
     doRgbSplit && (pixels = rgbSplit(pixels));
     doRgbSplit ? (ctx.globalAlpha = 0.1) : (ctx.globalAlpha = 1);
-    // !doRgbSplit && (ctx.globalAlpha = 1);
     // pixels = greenScreen(pixels);
     // put them back
     ctx.putImageData(pixels, 0, 0);
