@@ -21,6 +21,8 @@ function getVideo() {
     });
 }
 
+let [doRgbSplit, doRedEffect] = [false, false];
+
 // paint video to canvas
 function paintToCanvas() {
   const width = video.videoWidth;
@@ -37,9 +39,10 @@ function paintToCanvas() {
     // take the pixels out
     let pixels = ctx.getImageData(0, 0, width, height);
     // apply filters / mess with the pixels
-    // pixels = redEffect(pixels);
-    // pixels = rgbSplit(pixels);
-    // ctx.globalAlpha = 0.1;
+    doRedEffect && (pixels = redEffect(pixels));
+    doRgbSplit && (pixels = rgbSplit(pixels));
+    doRgbSplit ? (ctx.globalAlpha = 0.1) : (ctx.globalAlpha = 1);
+    // !doRgbSplit && (ctx.globalAlpha = 1);
     // pixels = greenScreen(pixels);
     // put them back
     ctx.putImageData(pixels, 0, 0);
@@ -118,3 +121,14 @@ getVideo();
 
 // run paintToCanvas when video is playing
 video.addEventListener("canplay", paintToCanvas);
+
+// toggle filters
+function applyRedEffect() {
+  doRedEffect = !doRedEffect;
+  doRgbSplit = false;
+}
+
+function applyRgbSplit() {
+  doRgbSplit = !doRgbSplit;
+  doRedEffect = false;
+}
