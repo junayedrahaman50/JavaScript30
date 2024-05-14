@@ -38,9 +38,8 @@ function paintToCanvas() {
     let pixels = ctx.getImageData(0, 0, width, height);
     // apply filters / mess with the pixels
     // pixels = redEffect(pixels);
-    // use short circuit and and boolean flag to apply filters
-    pixels = rgbSplit(pixels);
-    ctx.globalAlpha = 0.1;
+    // pixels = rgbSplit(pixels);
+    // ctx.globalAlpha = 0.1;
     // pixels = greenScreen(pixels);
     // put them back
     ctx.putImageData(pixels, 0, 0);

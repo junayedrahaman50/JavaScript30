@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Get User Media Code Along!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
@@ -15,26 +18,33 @@
     <div class="controls">
 
       <div class="rgb">
-        <label for="rmin">Red Min:</label>
-        <input type="range" min=0 max=255 name="rmin">
-        <label for="rmax">Red Max:</label>
-        <input type="range" min=0 max=255 name="rmax">
-
+        <div style="display: flex;align-items: center;">
+          <label for="rmin">Red Min:</label>
+          <input type="range" min=0 max=255 name="rmin">
+          <label style="margin-left: auto;" for="rmax">Red Max:</label>
+          <input type="range" min=0 max=255 name="rmax">
+        </div>
         <br>
-
-        <label for="gmin">Green Min:</label>
-        <input type="range" min=0 max=255 name="gmin">
-        <label for="gmax">Green Max:</label>
-        <input type="range" min=0 max=255 name="gmax">
-
+        <div style="display: flex;align-items: center;">
+          <label for="gmin">Green Min:</label>
+          <input type="range" min=0 max=255 name="gmin">
+          <label style="margin-left: auto;" for="gmax">Green Max:</label>
+          <input type="range" min=0 max=255 name="gmax">
+        </div>
         <br>
-
-        <label for="bmin">Blue Min:</label>
-        <input type="range" min=0 max=255 name="bmin">
-        <label for="bmax">Blue Max:</label>
-        <input type="range" min=0 max=255 name="bmax">
+        <div style="display: flex;align-items: center;">
+          <label for="bmin">Blue Min:</label>
+          <input type="range" min=0 max=255 name="bmin">
+          <label style="margin-left: auto;" for="bmax">Blue Max:</label>
+          <input type="range" min=0 max=255 name="bmax">
+        </div>
       </div>
-      <button onClick="takePhoto()">Take Photo</button>
+      <div class="buttons" style="display: flex; gap: 4px; justify-content: center;">
+        <button onClick="takePhoto()">Take Photo</button>
+        <button onClick="takePhoto()">Red Effect</button>
+        <button onClick="takePhoto()">RGB Split</button>
+      </div>
+
     </div>
 
 
