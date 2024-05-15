@@ -8,4 +8,4 @@ Participating in the [JavaScript30 challenge by WesBos](https://javascript30.com
 
 ## What I learned:
 
-- Diffrent event, properties, and methods of SpeechRecognition interface.
+- Diffrent event, properties, and methods of [SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) interface.
