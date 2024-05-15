@@ -6,7 +6,7 @@
     <title>Speech Detection</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 
@@ -19,14 +19,12 @@
         window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         // create new instance of speech recognition
         const recognition = new SpeechRecognition();
-        // populate while speaking, unless it will populate after you stop speaking
+        // populate while speaking
         recognition.interimResults = true;
-        // create paragraph on stop speaking/after speaking
         let p = document.createElement('p');
         const words = document.querySelector('.words');
         words.appendChild(p);
 
-        // listen for result, when result comes back get an event
         // result event is fired when the speech recognition service returns a result 
         recognition.addEventListener('result', e => {
             // e.results returns a nodeList
@@ -44,7 +42,6 @@
             if (transcript.includes('celebrate')) {
                 console.log('🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🎊');
             }
-            console.log(transcript);
         });
 
         // this event fired when speech recognition service has disconnected
@@ -72,7 +69,7 @@
 
         body {
             background: #ffc600;
-            font-family: 'helvetica neue';
+            font-family: 'Indie Flower', sans-serif;
             font-weight: 200;
             font-size: 20px;
         }
