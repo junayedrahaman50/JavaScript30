@@ -3,7 +3,7 @@ const canvas = document.querySelector(".photo");
 const ctx = canvas.getContext("2d", { willReadFrequently: true }); // canvas context
 const strip = document.querySelector(".strip");
 const snap = document.querySelector(".snap");
-
+const rangeInputs = document.querySelectorAll('input[type="range"]');
 function getVideo() {
   // this returns a promise
   navigator.mediaDevices
@@ -19,7 +19,7 @@ function getVideo() {
     });
 }
 
-let [doRgbSplit, doRedEffect] = [false, false];
+let [doRgbSplit, doRedEffect, doGreenEffect] = [false, false, false];
 
 // paint video to canvas
 function paintToCanvas() {
@@ -37,7 +37,7 @@ function paintToCanvas() {
     doRedEffect && (pixels = redEffect(pixels));
     doRgbSplit && (pixels = rgbSplit(pixels));
     doRgbSplit ? (ctx.globalAlpha = 0.1) : (ctx.globalAlpha = 1);
-    // pixels = greenScreen(pixels);
+    doGreenEffect && (pixels = greenScreen(pixels));
     // put them back
     ctx.putImageData(pixels, 0, 0);
   }, 16);
@@ -120,9 +120,22 @@ video.addEventListener("canplay", paintToCanvas);
 function applyRedEffect() {
   doRedEffect = !doRedEffect;
   doRgbSplit = false;
+  doGreenEffect = false;
 }
 
 function applyRgbSplit() {
   doRgbSplit = !doRgbSplit;
   doRedEffect = false;
+  doGreenEffect = false;
+}
+
+rangeInputs.forEach((rangeInput) => (rangeInput.disabled = true));
+
+function applyGreenEffect() {
+  doGreenEffect = !doGreenEffect;
+  doRgbSplit = false;
+  doRedEffect = false;
+  rangeInputs.forEach(
+    (rangeInput) => (rangeInput.disabled = !rangeInput.disabled)
+  );
 }
