@@ -178,7 +178,6 @@
     function fixNav() {
       console.log(topOfNav, window.scrollY);
       if (window.scrollY >= topOfNav) {
-        // when nav is fixed and gets out of flow its space is taken by another element causing content jump
         // fix content jump when nav gets out of flow
         document.body.style.paddingTop = `${nav.offsetHeight}px`;
         document.body.classList.add('fixed-nav');
