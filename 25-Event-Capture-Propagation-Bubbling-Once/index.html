@@ -67,7 +67,7 @@
 
     <button>Click once button</button>
     <script>
-        // Bubbling: On clicking a child element it also triggers click(event) on the parent elements
+        // Bubbling: When child element recieves an event, that event bubbles up to its parent elements
         const divs = document.querySelectorAll('div');
         const button = document.querySelector('button');
         function logText(e) {
