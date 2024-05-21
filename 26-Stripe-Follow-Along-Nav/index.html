@@ -250,7 +250,6 @@
       this.classList.add('trigger-enter');
       // unlike normal fn arrow fn inherits this value from handleEnter fn
       setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 100);
-      // bring the background on the page
       background.classList.add('open');
       // this = li, having the event
       const dropdown = this.querySelector('.dropdown');
