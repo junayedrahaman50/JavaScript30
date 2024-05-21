@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Follow Along Nav</title>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 
 <body>
-  <h2>Cool</h2>
+  <h1 class="heading">Follow Along Navbar</h1>
   <nav class="top">
     <div class="dropdownBackground">
       <span class="arrow"></span>
@@ -81,7 +82,7 @@
   <style>
     html {
       box-sizing: border-box;
-      font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
     *,
@@ -100,9 +101,14 @@
         linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
     }
 
-    h2 {
-      margin-top: 0;
-      padding-top: .8em;
+    .heading {
+      display: flex;
+      justify-content: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      font-size: 64px;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
     }
 
     nav {
