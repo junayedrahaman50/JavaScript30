@@ -60,11 +60,12 @@
         })
         slider.addEventListener('mousemove', (e) => {
             if (!isDown) return; // stop fn from running
-            e.preventDefault(); // prevent default behaviour, like selecting text while moving mouse
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft; // get postion every single time we move mouse
+            const walk = (x - startX) * 3; // deviation from the initial position, for every 1px move 3px
+            slider.scrollLeft = scrollLeft - walk; // scroll the container
         })
     </script>
-
-    <!-- 10:22 in video -->
 </body>
 
 </html>
