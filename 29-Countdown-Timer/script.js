@@ -8,7 +8,7 @@ const buttons = document.querySelectorAll("[data-time]");
 function timer(seconds) {
   // Clear any existing intervals
   clearInterval(countdown);
-  const now = Date.now(); // static method to get timestamp in miliseconds
+  const now = Date.now(); // static method to get timestamp in milliseconds
   const then = now + seconds * 1000;
 
   // get initial second
